@@ -3,4 +3,5 @@ test('has title', async ({ page }) => {
     await page.goto('https://www.google.com/');
     await page.locator ('#APjFqb').click();
     await page.locator ('#APjFqb').fill('playwright');
+    await page.keyboard.press('Enter');
 });
