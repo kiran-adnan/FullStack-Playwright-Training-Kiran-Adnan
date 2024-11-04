@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
-import {Link, Username, Password} from '../fixtures/constants.js'
+import {URL, USERNAME, PASSWORD} from '../fixtures/constants.js';
 
 test('test', async ({ page }) => {
   //Vist URL
-  await page.goto(Link);
+  await page.goto(URL);
 
   //Sign Up
   await signUp(page);
@@ -18,8 +18,8 @@ test('test', async ({ page }) => {
 async function signUp(page) {
   await page.getByRole('link', { name: 'Sign up' }).click();
   await page.getByLabel('Username:').click();
-  await page.getByLabel('Username:').fill(Username);
-  await page.getByLabel('Password:').fill(Password);
+  await page.getByLabel('Username:').fill(USERNAME);
+  await page.getByLabel('Password:').fill(PASSWORD);
   page.once('dialog', dialog => {
     console.log(`Dialog message: ${dialog.message()}`);
     dialog.dismiss().catch(() => {});
@@ -30,8 +30,8 @@ async function signUp(page) {
 async function Login(page) {
   await page.getByRole('link', { name: 'Log in' }).click();
   await page.locator('#loginusername').click();
-  await page.locator('#loginusername').fill(Username);
+  await page.locator('#loginusername').fill(USERNAME);
   await page.locator('#loginusername').press('Tab');
-  await page.locator('#loginpassword').fill(Password);
+  await page.locator('#loginpassword').fill(PASSWORD);
   await page.getByRole('button', { name: 'Log in' }).click(); 
 }

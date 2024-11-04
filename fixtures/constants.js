@@ -1,4 +1,4 @@
 
-export const Link = 'https://demoblaze.com/';
-export const Username = 'kiran.adnan6';
-export const Password = 'Test123';
+export const URL = 'https://demoblaze.com/';
+export const USERNAME = 'kiran.adnan6';
+export const PASSWORD = 'Test123';
